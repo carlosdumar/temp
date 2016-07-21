@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="appTemp" ng-controller="homeController">
+  <div class="container">
+    <div class="container-item" ng-repeat="product in listProduct">
+      <h2>{{product.id}}. {{product.Name}}</h2>
+      <figure class="container-item" ng-repeat="image in product.Img">
+        <img ng-src="{{image.src}}" alt="">
+      </figure>
+      <div class="container-description">
+        <table>
+          <thead>
+            <tr >
+              <th ng-repeat="descp in product.Description">{{descp.title}}</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="{{product.size}}" class="price">
+                Precio:
+              </td>
+              <td>
+                {{product.Price}}
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr >
+              <td ng-repeat="descp in product.Description">
+                {{descp.description}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./lib/angular.min.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+<script src="./Home/homeController.js" type="text/javascript"></script>
+</html>
